@@ -17,7 +17,6 @@ export async function purchaseCoins(
   baseAmount: number, // maybe make this an object in case we want to fetch rates with a different real-world currency
   coinList: CoinCollection
 ) {
-  // : Promise<CoinResponse | Error>
   // remove any duplicates from coin list
   const uniqueCoinList = removeDuplicateCoins(coinList);
 
