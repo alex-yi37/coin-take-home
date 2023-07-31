@@ -56,3 +56,24 @@ export function purchaseBtcAndEth(baseAmount: number) {
     { name: "ETH", ratio: 30 },
   ]);
 }
+
+export async function naiveCoinRates(baseAmount: number) {
+  try {
+    if (baseAmount <= 0) throw new Error("need to have money to spend");
+
+    const rateData = await fetchRates(COINBASE_URL);
+
+    const btcCash = baseAmount * 0.7;
+    const ethCash = baseAmount * 0.3;
+
+    const output = {
+      BTC: calculateAmount(rateData, btcCash, "BTC"),
+      ETH: calculateAmount(rateData, ethCash, "ETH"),
+    };
+    console.log("naive output", output);
+
+    return output;
+  } catch (err) {
+    console.error(err);
+  }
+}
