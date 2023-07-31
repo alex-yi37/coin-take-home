@@ -1,5 +1,3 @@
-import { exampleResponse } from "./test-data";
-
 // input object representing a coin's name and the desired ratio of coin (out of 100) that we'd like to buy
 export interface CoinInfo {
   name: string;
