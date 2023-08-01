@@ -73,7 +73,7 @@ export function validateInputCoins(coinList: CoinCollection) {
   return determineInvalidCoinRatio(coinList);
 }
 
-function getRateData(coinData: CoinData, currencySymbol: string) {
+export function getRateData(coinData: CoinData, currencySymbol: string) {
   const upperSymbol = currencySymbol.toUpperCase();
 
   const conversionRate = Number(coinData?.data?.rates?.[upperSymbol]);
